@@ -11,4 +11,6 @@ Tim Caswell's [jquery-haml] [1] is super handy, but it only works client-side.  
 
 Depencencies
 ------------
-* https://github.com/pguillory/node-djtesto (for testing)
+* [djtesto] [1] (for testing)
+
+  [1]: https://github.com/pguillory/node-djtesto
