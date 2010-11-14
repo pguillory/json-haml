@@ -1,6 +1,4 @@
-Tim Caswell's [jquery-haml] [1] is super handy, but it only works client-side, not server-side.  No sir!  We must have all the sides!
-
-  [1]: https://github.com/creationix/jquery-haml
+Tim Caswell's [jquery-haml] [2] is super handy, but it only works client-side, not server-side.  No sir!  We must have all the sides!
 
     var name = "foo"
     var template = ["%div", "my name is ", ["%span", {class:"name"}, name]]
@@ -14,3 +12,4 @@ Dependencies
 * [djtesto] [1] (for testing)
 
   [1]: https://github.com/pguillory/node-djtesto
+  [2]: https://github.com/creationix/jquery-haml
