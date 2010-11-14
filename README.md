@@ -1,4 +1,4 @@
-Tim Caswell's [jquery-haml] [1] is super handy, but it only works client-side.  No sir!  We must have all the sides!
+Tim Caswell's [jquery-haml] [1] is super handy, but it only works client-side, not server-side.  No sir!  We must have all the sides!
 
   [1]: https://github.com/creationix/jquery-haml
 
@@ -9,7 +9,7 @@ Tim Caswell's [jquery-haml] [1] is super handy, but it only works client-side.  
 
     // <div>my name is <span class="name">foo</span></div>
 
-Depencencies
+Dependencies
 ------------
 * [djtesto] [1] (for testing)
 
