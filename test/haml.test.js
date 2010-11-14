@@ -19,6 +19,7 @@ var inputs = {
     '["%div", ["%span"]]': '<div><span/></div>',
     '["%div", "before", ["%span", "during"], "after"]': '<div>before<span>during</span>after</div>',
     '["before", ["%span", "during"], "after"]': 'before<span>during</span>after',
+    '[".foo"]': '<div class="foo"/>',
 }
 
 for (var json in inputs) {
