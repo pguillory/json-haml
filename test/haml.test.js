@@ -21,12 +21,14 @@ var inputs = {
     '["before", ["%span", "during"], "after"]': 'before<span>during</span>after',
     '[".foo"]': '<div class="foo"/>',
     '["#foo"]': '<div id="foo"/>',
+    '["%tag#id.foo.bar"]': '<tag id="id" class="foo bar"/>',
 }
 
 for (var json in inputs) {
-    tests[json] = (function(input, output) {
+    tests[json] = (function(input, expected_output) {
         return function(test) {
-            test.assert(haml.stringify(input) === output)
+            var output = haml.stringify(input)
+            test.assert(output === expected_output)
             test.pass()
         }
     })(JSON.parse(json), inputs[json])
