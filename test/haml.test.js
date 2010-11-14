@@ -6,7 +6,7 @@ var haml = require('..')
 
 var tests = {}
 
-var inputs = {
+var expected_outputs = {
     '""': '',
     '"a"': 'a',
     '[]': '',
@@ -22,16 +22,22 @@ var inputs = {
     '[".foo"]': '<div class="foo"/>',
     '["#foo"]': '<div id="foo"/>',
     '["%tag#id.foo.bar"]': '<tag id="id" class="foo bar"/>',
+    '"<"': '&lt;',
+    '">"': '&gt;',
+    '"&"': '&amp;',
+    '"\\""': '&quot;',
+    '"\'"': '&apos;',
 }
 
-for (var json in inputs) {
-    tests[json] = (function(input, expected_output) {
+for (var input_json in expected_outputs) {
+    tests[input_json] = (function(input_json, expected_output) {
         return function(test) {
+            var input = JSON.parse(input_json)
             var output = haml.stringify(input)
             test.assert(output === expected_output)
             test.pass()
         }
-    })(JSON.parse(json), inputs[json])
+    })(input_json, expected_outputs[input_json])
 }
 
 djtesto.runTests(tests, function(err) {
