@@ -1,5 +1,3 @@
-require.paths.unshift(__dirname + '/../..')
-
 var sys = require('sys')
 var djtesto = require('djtesto')
 var haml = require('..')
@@ -39,11 +37,11 @@ var expected_outputs = {
     ],
     'tag with attribute': [
         '["%div", {"class":"foo"}]',
-        '<div class="foo"/>',
+        '<div class="foo"></div>',
     ],
     'tag with two attributes': [
         '["%div", {"class":"foo", "style":"bar"}]',
-        '<div class="foo" style="bar"/>',
+        '<div class="foo" style="bar"></div>',
     ],
     'nested tags': [
         '["%div", ["%span"]]',
@@ -59,15 +57,15 @@ var expected_outputs = {
     ],
     'tag class': [
         '[".foo"]',
-        '<div class="foo"/>',
+        '<div class="foo"></div>',
     ],
     'tag id': [
         '["#foo"]',
-        '<div id="foo"/>',
+        '<div id="foo"></div>',
     ],
     'combining tag, id, and classes': [
         '["%tag#id.foo.bar"]',
-        '<tag id="id" class="foo bar"/>',
+        '<tag id="id" class="foo bar"></tag>',
     ],
     'xml encoding: <': [
         '"<"',
@@ -88,6 +86,10 @@ var expected_outputs = {
     'xml encoding: \'': [
         '"\'"',
         '&apos;',
+    ],
+    'tag class with dash': [
+        '[".a-b"]',
+        '<div class="a-b"></div>',
     ],
 }
 
