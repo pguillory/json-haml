@@ -1,6 +1,7 @@
 var sys = require('sys')
-var djtesto = require('djtesto')
+var djtesto = require('../deps/djtesto')
 var haml = require('..')
+var assert = require('assert')
 
 var expected_outputs = {
     'empty string': [
@@ -25,10 +26,6 @@ var expected_outputs = {
     ],
     'tag': [
         '["%b"]',
-        '<b/>',
-    ],
-    'tag with empty content': [
-        '["%b", ""]',
         '<b></b>',
     ],
     'tag with content': [
@@ -45,7 +42,7 @@ var expected_outputs = {
     ],
     'nested tags': [
         '["%div", ["%span"]]',
-        '<div><span/></div>',
+        '<div><span></span></div>',
     ],
     'concatenating text and tags': [
         '["before", ["%span", "during"], "after"]',
@@ -100,7 +97,7 @@ for (var name in expected_outputs) {
         return function(test) {
             var input = JSON.parse(input_json)
             var output = haml.stringify(input)
-            test.assert(output === expected_output)
+            assert.equal(output, expected_output)
             test.pass()
         }
     })(expected_outputs[name][0], expected_outputs[name][1])
